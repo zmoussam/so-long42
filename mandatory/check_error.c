@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/13 20:05:28 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:02:40 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void check_map_component(char **map, int count_map_line)
     }
 }
 
-void check_component_exist(char **map, int count_map_line)
+int check_component_exist(char **map, int count_map_line)
 {
     int E;
     int P;
@@ -71,6 +71,6 @@ void check_component_exist(char **map, int count_map_line)
         handel_error("there is more than one player !!!\n");
     if(C == 0)
         handel_error("you need collectable !!!\n");
-    
+    return(C);
     
 }
