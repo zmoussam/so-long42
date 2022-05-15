@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:21:47 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/14 22:20:32 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/15 22:30:22 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@ int key_hook(int keycode,t_long *so_long)
     P = get_cordinates(so_long,'P');
     printf(" x = %d y = %d\n",P.x,P.y);
     handel_moves(so_long,P.x,P.y,keycode);
-    // int t;
-    // t = 0; 
-    // while(so_long->map[t])
-    // {
-    //     printf("%s",so_long->map[t]);
-    //     if(t == 5)
-    //         printf("\n");
-    //     t++;
-    // }  
+    int t;
+    t = 0; 
+    while(so_long->map[t])
+    {
+        printf("%s",so_long->map[t]);
+        // if(t == 5)
+        //     printf("\n");
+        t++;
+    }  
     return(1);
     
 } 

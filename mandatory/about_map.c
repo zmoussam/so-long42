@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:50:59 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/14 15:29:31 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/15 22:34:04 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char **read_map_file(char *map_file, int nbr_line)
     i = 0;
     while(i < nbr_line)
     { 
-        map[i] = get_next_line(fd);
+        map[i] = get_next_line(fd); 
         i++;
     }
     map[i] = NULL;

@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/14 18:02:40 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/15 15:31:29 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,11 @@ int check_component_exist(char **map, int count_map_line)
         }
         i++;
     }
-    if(E != 1)
+    if(E == 0)
         handel_error("there is more than one exit !!!\n");
     if(P != 1)
         handel_error("there is more than one player !!!\n");
     if(C == 0)
         handel_error("you need collectable !!!\n");
     return(C);
-    
 }

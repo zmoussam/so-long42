@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/14 22:20:41 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/15 21:13:23 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ typedef struct s_long{
     void *win;
     int count_map_line;
     int number_of_c;
+    void *wall;
+    void *player_up;
+    void *player_down;
+    void *player_left;
+    void *player_right;
+    void *collectabls;
+    void *heart;
+    void *black;
 }t_long;
 
 typedef struct s_cordinates
