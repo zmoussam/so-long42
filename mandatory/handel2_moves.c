@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:21:47 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/16 18:14:17 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/17 00:19:08 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void put_map_to_win(t_long *so_long,int keycode)
             }
             if(so_long->map[i][j] == 'C')
             {
-                if(i == 1 && j == 1)
+                if((i == 8 && j == 13) || (i == 17 && j == 17))
                     mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->heart_two,j * 60,i * 60);
-                else if(i == j)
+                else if( (i == 15 && j == 3) || (i == 4 && j == 20))
                     mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->heart,j * 60,i * 60);
                 else 
                     mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->collectabls,j * 60,i * 60);
@@ -51,6 +51,7 @@ void put_map_to_win(t_long *so_long,int keycode)
                      mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->exit_close,j * 60,i * 60);
                 else
                     mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->exit_open,j * 60,i * 60);
+                
             }
             if(so_long->map[i][j] == '0')
             {
