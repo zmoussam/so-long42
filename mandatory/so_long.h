@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/15 21:13:23 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/16 18:12:30 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct s_long{
     void *collectabls;
     void *heart;
     void *black;
+    void *exit_close;
+    void *exit_open;
+    void *heart_two;
 }t_long;
 
 typedef struct s_cordinates
@@ -57,5 +60,6 @@ void moves_down(t_long *so_long,int x,int y);
 void moves_right(t_long *so_long,int x,int y);
 void moves_left(t_long *so_long,int x,int y);
 int key_hook(int keycode,t_long *so_long);
+void put_map_to_win(t_long *so_long,int keycode);
 
 #endif

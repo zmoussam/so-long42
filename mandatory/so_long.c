@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:29 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/15 22:40:32 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/16 18:12:57 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,29 @@
 // {
 //     int i;
 //     int j;
-//      i = 0;
-//      j = 0;
-//     while(so_long->map[i])
+//     i = 0;
+//      while(so_long->map[i])
 //     {
 //         j = 0;
 //         while(so_long->map[i][j])
 //         {
 //             if(so_long->map[i][j] == '1')
-//                 mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->black,i * 60,j * 60);
+//             {
+//                 mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->wall,  j * 60,i * 60);
+//             }
 //             if(so_long->map[i][j] == 'P')
-//                 mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->black,i * 60,j * 60);
+//             {
+//                 mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->player_right,j * 60,i * 60);
+//             }
 //             if(so_long->map[i][j] == 'C')
-//                 mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->black,i * 60,j * 60);
-//             j++;   
+//             {
+//                 mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->heart,j * 60,i * 60);
+//             }
+//             if(so_long->map[i][j] == 'E')
+//             {
+//                 mlx_put_image_to_window(so_long->mlx,so_long->win,so_long->exit,j * 60,i * 60);
+//             }
+//             j++;
 //         }
 //         i++;
 //     }
@@ -64,45 +73,11 @@ int main(int argc, char **argv)
     so_long.wall = mlx_xpm_file_to_image(so_long.mlx, "../assets/wall.xpm",&x,&y);
     so_long.heart = mlx_xpm_file_to_image(so_long.mlx, "../assets/heart.xpm",&x,&y);
     so_long.collectabls = mlx_xpm_file_to_image(so_long.mlx, "../assets/colectabls.xpm",&x,&y);
-    // mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.player_left,2 * 60,1 * 60);
-    // mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.wall,2 * 60,2 * 60);
-    // mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.black,3 * 60,2 * 60);
-    // mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.collectabls,2 * 60,0 * 60);
-    // mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.heart,4 * 60,1 * 60);
-    //put_map_to_win(&so_long);
-    i = 0;
-     while(so_long.map[i])
-    {
-        j = 0;
-        while(so_long.map[i][j])
-        {
-            if(so_long.map[i][j] == '1')
-            {
-                mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.wall,  j * 60,i * 60);
-            }
-            if(so_long.map[i][j] == 'P')
-            {
-                mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.player_right,j * 60,i * 60);
-            }
-            if(so_long.map[i][j] == 'C')
-            {
-                mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.heart,j * 60,i * 60);
-            }
-            if(so_long.map[i][j] == '0')
-            {
-                mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.collectabls,j * 60,i * 60);
-            }
-            if(so_long.map[i][j] == 'E')
-            {
-                mlx_put_image_to_window(so_long.mlx,so_long.win,so_long.black,j * 60,i * 60);
-            }
-            j++;
-        }
-        i++;
-    }
+    so_long.exit_close = mlx_xpm_file_to_image(so_long.mlx, "../assets/exit_close.xpm",&x,&y);
+    so_long.exit_open = mlx_xpm_file_to_image(so_long.mlx, "../assets/exit_open.xpm",&x,&y);
+    so_long.heart_two = mlx_xpm_file_to_image(so_long.mlx, "../assets/heart2.xpm",&x,&y);
     mlx_key_hook(so_long.win,key_hook,&so_long);
+    put_map_to_win(&so_long,124);
     mlx_loop(so_long.mlx);
     close(fd);
-
-   // mlx_xpm_file_to_image(so_long.mlx, "assets/file.xpm", &)
 }
