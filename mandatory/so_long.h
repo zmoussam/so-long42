@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/16 18:12:30 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:44:44 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ void check_map_wals(char **map, int count_map_line);
 void check_map_component(char **map, int count_map_line);
 int check_component_exist(char **map, int count_map_line);
 t_cordinates get_cordinates(t_long *so_long,char point);
-void handel_moves(t_long *so_long, int x, int y,int keycode);
-void moves_up(t_long *so_long,int x,int y);
-void moves_down(t_long *so_long,int x,int y);
-void moves_right(t_long *so_long,int x,int y);
-void moves_left(t_long *so_long,int x,int y);
+void handel_moves(t_long *so_long,t_cordinates p,int keycode);
+void moves_up(t_long *so_long,t_cordinates p);
+void moves_down(t_long *so_long,t_cordinates p);
+void moves_right(t_long *so_long,t_cordinates p);
+void moves_left(t_long *so_long,t_cordinates p);
 int key_hook(int keycode,t_long *so_long);
 void put_map_to_win(t_long *so_long,int keycode);
+void get_data(t_long *so_long);
 
 #endif
