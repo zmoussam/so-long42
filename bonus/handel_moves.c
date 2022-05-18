@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 23:43:51 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 20:42:50 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/19 00:01:52 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,16 @@ void	moves_left(t_long *so_long, t_cordinates p)
 			so_long->number_of_c--;
 		so_long->map[p.y][p.x - 1] = 'P';
 		so_long->map[p.y][p.x] = '0';
+		so_long->moves++;
+		ft_printf("moves = %d\n",so_long->moves);
 	}
 	if (so_long->map[p.y][p.x - 1] == 'E' && so_long->number_of_c == 0)
 	{
+		so_long->moves++;
+		ft_printf("moves = %d\n",so_long->moves);
 		so_long->map[p.y][p.x] = '0';
 		mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(0);
+		exit(-1);
 	}
 }
 
@@ -37,13 +41,17 @@ void	moves_right(t_long *so_long, t_cordinates p)
 			so_long->number_of_c--;
 		so_long->map[p.y][p.x + 1] = 'P';
 		so_long->map[p.y][p.x] = '0';
+		so_long->moves++;
+		ft_printf("moves = %d\n",so_long->moves);
 	}
 	if (so_long->map[p.y][p.x + 1] == 'E' && so_long->number_of_c == 0)
 	{
+		so_long->moves++;
+		ft_printf("moves = %d\n",so_long->moves);
 		so_long->map[p.y][p.x] = '0';
-		printf("you won!!\n");
+		ft_printf("you won!!\n");
 		mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(0);
+		exit(-1);
 	}
 }
 
@@ -55,12 +63,16 @@ void	moves_down(t_long *so_long, t_cordinates p)
 			so_long->number_of_c--;
 		so_long->map[p.y + 1][p.x] = 'P';
 		so_long->map[p.y][p.x] = '0';
+		so_long->moves++;
+		ft_printf("moves = %d\n",so_long->moves);
 	}
 	if (so_long->map[p.y + 1][p.x] == 'E' && so_long->number_of_c == 0)
 	{
+		so_long->moves++;
+		ft_printf("moves = %d\n",so_long->moves);
 		so_long->map[p.y][p.x] = '0';
 		mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(0);
+		exit(-1);
 	}
 }
 
@@ -72,12 +84,16 @@ void	moves_up(t_long *so_long, t_cordinates p)
 			so_long->number_of_c--;
 		so_long->map[p.y - 1][p.x] = 'P';
 		so_long->map[p.y][p.x] = '0';
+		so_long->moves++;
+		ft_printf("moves = %d\n",so_long->moves);
 	}
 	if (so_long->map[p.y - 1][p.x] == 'E' && so_long->number_of_c == 0)
 	{
+		so_long->moves++;
+		ft_printf("moves = %d\n",so_long->moves);
 		so_long->map[p.y][p.x] = '0';
 		mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(0);
+		exit(-1);
 	}
 }
 
@@ -94,6 +110,6 @@ void	handel_moves(t_long *so_long, t_cordinates p, int keycode)
 	if (keycode == 53)
 	{
 		mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(0);
+		exit(-1);
 	}
 }

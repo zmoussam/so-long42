@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 17:45:52 by zmoussam          #+#    #+#             */
-/*   Updated: 2021/12/19 15:53:42 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 21:37:32 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
+# include "../get_next_line/get_next_line.h"
 
-size_t	ft_strlen(const char *str);
 size_t	ft_putchar(int c);
 size_t	ft_putstr(char *s);
 void	ft_putnbr(int d, int *count);

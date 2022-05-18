@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 16:30:15 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/19 00:11:19 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_long{
 	void	*e_cl;
 	void	*e_op;
 	void	*ceris;
+	int		moves;
 }t_long;
 
 typedef struct s_cordinates
@@ -71,5 +72,6 @@ void			check_number_of_component(t_componente all);
 void			put_player(t_long *so_long, int keycode, int i, int j);
 void			put_colectabls(t_long *so_long, int keycode, int i, int j);
 void			put_exit(t_long *so_long, int keycode, int i, int j);
+int				esc_hook(t_long *so);
 
 #endif

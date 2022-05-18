@@ -6,23 +6,19 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:29 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 18:00:30 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:54:36 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	esc_hook(int keycode,t_long *so)
-{
-	exit(0);
-}
 int	main(int argc, char **argv)
 {
 	t_long	so;
 	int		fd;
 	int		i;
 	int		j;
-
+	so.moves = 0; 
 	so.count_map_line = 0;
 	if (argc != 2)
 		handel_error("invalide argument!!\n");
@@ -40,6 +36,6 @@ int	main(int argc, char **argv)
 	get_data(&so);
 	put_map_to_win(&so, 2);
 	mlx_hook(so.win, 2, 1L << 0, &key_hook, &so);
-	mlx_hook(so.win, 17, 1L, &esc_hook, &so);
+	mlx_hook(so.win, 17, 1L, esc_hook, &so);
 	mlx_loop(so.mlx);
 }

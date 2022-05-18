@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:50:59 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 18:09:19 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/19 00:01:26 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	get_nbr_line(char *map_file)
 	int	fd;
 	int	count_map_line;
 
+	count_map_line = 0;
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
 		handel_error("open file\n");

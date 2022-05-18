@@ -6,23 +6,11 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 22:17:13 by zmoussam          #+#    #+#             */
-/*   Updated: 2021/12/18 22:35:35 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 21:37:23 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
 
 size_t	ft_putchar(int c)
 {
