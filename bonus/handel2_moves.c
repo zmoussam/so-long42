@@ -6,11 +6,11 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:21:47 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 15:59:14 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:09:35 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 t_cordinates	get_cordinates(t_long *so_long, char point)
 {

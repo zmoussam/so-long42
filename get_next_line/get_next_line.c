@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 23:13:35 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/03/06 01:19:06 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 17:28:25 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
-		return (NULL);
+		exit(0);
 	rd = 1;
 	rest = read_filles(rd, rest, fd, buffer);
 	if (!rest)

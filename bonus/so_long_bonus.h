@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 16:30:15 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:09:06 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # define BUFFER_SIZE 1024
 # include "../get_next_line/get_next_line.h"
 # include "../printf/ft_printf.h"

@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:22:24 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/03/05 19:20:57 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 17:27:56 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	{
 		new = malloc(1);
 		if (!new)
-			return (0);
+			exit(0);
 		new[0] = '\0';
 		return (new);
 	}
@@ -47,7 +47,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = ft_strlen(s);
 	new = (char *)malloc(len + 1);
 	if (!new)
-		return (new);
+		exit(0);
 	j = 0;
 	while (j < len)
 		new[j++] = s[start++];
@@ -79,7 +79,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	size_s2 = ft_strlen(s2);
 	new = (char *)malloc((size_s1 + size_s2 + 1) * sizeof(char));
 	if (!new)
-		return (NULL);
+		exit(0);
 	i = 0;
 	while (i < size_s1)
 	{
@@ -105,7 +105,7 @@ char	*ft_strdup(const char *s1)
 		size++;
 	copy = (char *)malloc((size + 1) * sizeof(char));
 	if (copy == NULL)
-		return (copy);
+		exit(0);
 	j = 0;
 	while (s1[j])
 	{

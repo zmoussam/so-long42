@@ -6,11 +6,11 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 15:16:59 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 21:00:20 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	check_number_of_component(t_componente all)
 {
@@ -41,7 +41,7 @@ void	check_map_component(char **map, int count_map_line)
 		while (j < ft_strlen(map[0]) - 2)
 		{
 			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'E'
-					&& map[i][j] != 'P' && map[i][j] != 'C')
+					&& map[i][j] != 'P' && map[i][j] != 'C' && map[i][j] != 'X')
 				handel_error("map contains some intruders characters!!");
 			j++;
 		}

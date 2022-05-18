@@ -6,15 +6,17 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:29 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 18:00:30 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:34:22 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	esc_hook(int keycode,t_long *so)
 {
+	(void)keycode;
 	exit(0);
+	return 0;
 }
 int	main(int argc, char **argv)
 {
@@ -40,6 +42,6 @@ int	main(int argc, char **argv)
 	get_data(&so);
 	put_map_to_win(&so, 2);
 	mlx_hook(so.win, 2, 1L << 0, &key_hook, &so);
-	mlx_hook(so.win, 17, 1L, &esc_hook, &so);
+	mlx_hook(so.win, 17, 0, &esc_hook, &so);
 	mlx_loop(so.mlx);
 }

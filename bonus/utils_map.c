@@ -6,11 +6,11 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:25:15 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 16:30:23 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:30:33 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

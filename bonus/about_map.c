@@ -6,11 +6,11 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:50:59 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 17:28:39 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:09:19 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	get_nbr_line(char *map_file)
 {
