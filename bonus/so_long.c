@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:29 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/19 00:37:45 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/19 00:52:09 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	animation(t_long *so)
 {
 	int i;
 	int	j;
-
+	static int x = 0;
+	x++;
 	i = 0;
 	j = 0;
 	while(so->map[i])
@@ -24,21 +25,21 @@ int	animation(t_long *so)
 		j = 0;
 		while (so->map[i][j])
 		{
-			if(so->map[i][j] == 'C' )
+			if(so->map[i][j] == 'X' && x % 1387 == 0)
 			{
 				mlx_put_image_to_window(so->mlx, so->win, so->green_right, j * 30, i * 30);
-				 usleep(5000);
+				 usleep(50000);
 			}
-			else if (so->map[i][j] == 'C')
+			else if (so->map[i][j] == 'X' && x % 1567 == 0)
 			{
 				mlx_put_image_to_window(so->mlx, so->win, so->green_left, j * 30, i * 30);
-				usleep(5000);
+				 usleep(50000);
+			
 			}
 			
 			j++;
 		}
 		i++;
-		
 	}
 		return 1 ;
 }
