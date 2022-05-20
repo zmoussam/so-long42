@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:29 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 01:37:14 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 03:01:16 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	animation(t_long *so_long)
 {
 	int t = 0;
-	static int r  = 0 ;
- 	r++;
 	t_cordinates e_g;
     t_cordinates e_r;
 	int randd;
@@ -30,20 +28,13 @@ int	animation(t_long *so_long)
     e_r = get_cordinates(so_long,'R');
 	if (randd == 1)
     {
-		handel_enemie_moves(so_long,so_long->bolean,e_r);
+		handel_enemie_moves(so_long,so_long->bolean_R,e_r);
     }
 	else if (randd == 2)
     {
-       	handel_enemie_moves(so_long,so_long->bolean,e_g);
+       	handel_enemie_moves(so_long,so_long->bolean_G,e_g);
     }
-	if(r == 10000)
- 		r = 0;
-	while(so_long->map[t] && t < 15)
-	{
-		printf("%s",so_long->map[t]);
-		t++;
-	}
-	printf("\n");
+	put_map_to_win(so_long,2);
 	return 1;
 }
 
@@ -89,10 +80,13 @@ int	main(int argc, char **argv)
 	int		fd;
 	int		i;
 	int		j;
-	int bolean;
-	bolean = 1;
+	int bolean_R;
+	int bolean_G;
+	bolean_R = 0;
+	bolean_G = 0;
 	
-	so.bolean = &bolean;
+	so.bolean_R = &bolean_R;
+	so.bolean_G = &bolean_G;
 	so.moves = 0; 
 	so.count_map_line = 0;
 	if (argc != 2)

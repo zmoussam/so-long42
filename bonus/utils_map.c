@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:25:15 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/19 15:29:10 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 02:24:12 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ void	get_data(t_long *so)
 	so->green_right = mlx_xpm_file_to_image(so->mlx, "../assets/green_right.xpm",&x,&y);
 	so->heart_big = mlx_xpm_file_to_image(so->mlx, "../assets/heart_big.xpm",&x,&y);
 	so->heart_small = mlx_xpm_file_to_image(so->mlx, "../assets/heart_small.xpm",&x,&y);
+	so->red_left = mlx_xpm_file_to_image(so->mlx, "../assets/red_left.xpm",&x,&y);
 }

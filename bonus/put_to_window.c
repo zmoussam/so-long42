@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:26:04 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 01:05:46 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 03:14:10 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,12 @@ void	put_map_to_win(t_long *so, int keycode)
 			if (so->map[i][j] == '0')
 				mlx_put_image_to_window(so->mlx, so->win,
 					so->black, j * 30, i * 30);
-			// if(so->map[i][j] == 'G')
-			
-			// if(so->map[i][j] == 'R')
+			 if(so->map[i][j] == 'G')
+				mlx_put_image_to_window(so->mlx,so->win,
+				so->green_left,j * 30, i * 30);
+			 if(so->map[i][j] == 'R')
+			 	mlx_put_image_to_window(so->mlx,so->win,
+				so->red_left,j * 30, i * 30);
 		}
 	}
 }

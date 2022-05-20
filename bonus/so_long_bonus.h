@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 01:10:18 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 02:54:24 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ typedef struct s_long{
 	void	*green_right;
 	void	*heart_big;
 	void	*heart_small;
-	int		*bolean;
+	int		*bolean_R;
+	int		*bolean_G;
+	void	*red_left;
 	
 }t_long;
 
