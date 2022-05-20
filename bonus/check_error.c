@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/19 00:51:36 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 01:18:46 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	check_map_component(char **map, int count_map_line)
 		while (j < ft_strlen(map[0]) - 2)
 		{
 			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'E'
-					&& map[i][j] != 'P' && map[i][j] != 'C' && map[i][j] != 'X')
+					&& map[i][j] != 'P' && map[i][j] != 'C' && map[i][j] != 'X'
+					&& map[i][j] != 'G' && map[i][j] != 'R')
 				handel_error("map contains some intruders characters!!");
 			j++;
 		}

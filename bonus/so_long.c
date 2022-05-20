@@ -6,49 +6,93 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:29 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/19 00:52:09 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 01:37:14 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	animation(t_long *so)
+int	animation(t_long *so_long)
 {
-	int i;
-	int	j;
-	static int x = 0;
-	x++;
-	i = 0;
-	j = 0;
-	while(so->map[i])
+	int t = 0;
+	static int r  = 0 ;
+ 	r++;
+	t_cordinates e_g;
+    t_cordinates e_r;
+	int randd;
+    int l;
+    int u;
+	l = 1;
+    u = 2;
+    randd = (rand() % (u - l + 1) + l);
+	
+	e_g = get_cordinates(so_long,'G');
+    e_r = get_cordinates(so_long,'R');
+	if (randd == 1)
+    {
+		handel_enemie_moves(so_long,so_long->bolean,e_r);
+    }
+	else if (randd == 2)
+    {
+       	handel_enemie_moves(so_long,so_long->bolean,e_g);
+    }
+	if(r == 10000)
+ 		r = 0;
+	while(so_long->map[t] && t < 15)
 	{
-		j = 0;
-		while (so->map[i][j])
-		{
-			if(so->map[i][j] == 'X' && x % 1387 == 0)
-			{
-				mlx_put_image_to_window(so->mlx, so->win, so->green_right, j * 30, i * 30);
-				 usleep(50000);
-			}
-			else if (so->map[i][j] == 'X' && x % 1567 == 0)
-			{
-				mlx_put_image_to_window(so->mlx, so->win, so->green_left, j * 30, i * 30);
-				 usleep(50000);
-			
-			}
-			
-			j++;
-		}
-		i++;
+		printf("%s",so_long->map[t]);
+		t++;
 	}
-		return 1 ;
+	printf("\n");
+	return 1;
 }
+
+	//
+// int	animation(t_long *so)
+// {
+// 	int i;
+// 	int	j;
+// 	static int r  = 0 ;
+// 	r++;
+// 	i = 0;
+// 	j = 0;
+// 	while(so->map[i])
+// 	{
+// 		j = 0;
+// 		while (so->map[i][j])
+// 		{
+// 			if (so->map[i][j] = 'X')
+// 			{
+				
+// 			}
+// 			if(((i == 15 && j == 3) || (i == 4 && j == 20) || (i == 3 && j == 18)) && so->map[i][j] == 'C' && r  == 1 )
+// 			{
+// 				mlx_put_image_to_window(so->mlx, so->win, so->heart_big, j * 30, i * 30);
+// 			}
+// 		     if (((i == 15 && j == 3) || (i == 4 && j == 20) || (i == 3 && j == 18)) && r == 5000 && so->map[i][j] == 'C')
+// 			{
+// 				mlx_put_image_to_window(so->mlx, so->win, so->heart, j * 30, i * 30);
+			
+// 			}
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 		if(r == 10000)
+// 			r = 0;
+	
+// 		return 1 ;
+// }
 int	main(int argc, char **argv)
 {
 	t_long	so;
 	int		fd;
 	int		i;
 	int		j;
+	int bolean;
+	bolean = 1;
+	
+	so.bolean = &bolean;
 	so.moves = 0; 
 	so.count_map_line = 0;
 	if (argc != 2)
@@ -66,8 +110,9 @@ int	main(int argc, char **argv)
 			so.count_map_line * 30, "so_long");
 	get_data(&so);
 	put_map_to_win(&so, 2);
-	mlx_hook(so.win, 2, 1L << 0, &key_hook, &so);
-	mlx_hook(so.win, 17, 1L, esc_hook, &so);
+	//printf("!!!!\n");
 	mlx_loop_hook(so.mlx, animation, &so);
+	mlx_hook(so.win, 2, 1L << 0, &key_hook, &so);
+	mlx_hook(so.win, 17, 1L << 15, esc_hook, &so);
 	mlx_loop(so.mlx);
 }

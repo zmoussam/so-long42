@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/19 00:34:32 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 01:10:18 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ typedef struct s_long{
 	void	*d;
 	void	*green_left;
 	void	*green_right;
+	void	*heart_big;
+	void	*heart_small;
+	int		*bolean;
 	
 }t_long;
 
@@ -77,5 +80,12 @@ void			put_player(t_long *so_long, int keycode, int i, int j);
 void			put_colectabls(t_long *so_long, int keycode, int i, int j);
 void			put_exit(t_long *so_long, int keycode, int i, int j);
 int				esc_hook(t_long *so);
+void			handel_enemie_moves(t_long *so_long,int *bolean ,t_cordinates p);
+void			moves_enemie_green(t_long *so, t_cordinates e,int *bolean);
+void			moves_enemie_red(t_long *so, t_cordinates e,int *bolean);
+void			moves_enemie_down(t_long *so_long, char point ,t_cordinates p, int *bolean);
+void			moves_enemie_up(t_long *so_long, char point, t_cordinates p, int *bolean);
+void			moves_enemie_right(t_long *so_long, char point, t_cordinates p, int *bolean);
+void			moves_enemie_left(t_long *so_long,char point, t_cordinates p, int *bolean);
 
 #endif
