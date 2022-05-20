@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/19 00:11:19 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:42:48 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_long{
 	char	**map;
 	void	*mlx;
 	void	*win;
-	int		count_map_line;
+	size_t	count_map_line;
 	int		number_of_c;
 	void	*wall;
 	void	*p_up;
@@ -55,10 +55,10 @@ void			handel_error(char *error_name);
 int				get_nbr_line(char *map_file);
 char			**read_map_file(char *map_file, int nbr_line);
 void			check_extention(char *file_name);
-void			check_map_form(char **map, int count_map_line);
-void			check_map_wals(char **map, int count_map_line);
-void			check_map_component(char **map, int count_map_line);
-int				check_component_exist(char **map, int count_map_line);
+void			check_map_form(char **map, size_t count_map_line);
+void			check_map_wals(char **map, size_t count_map_line);
+void			check_map_component(char **map, size_t count_map_line);
+int				check_component_exist(char **map, size_t count_map_line);
 t_cordinates	get_cordinates(t_long *so_long, char point);
 void			handel_moves(t_long *so_long, t_cordinates p, int keycode);
 void			moves_up(t_long *so_long, t_cordinates p);
@@ -70,8 +70,8 @@ void			put_map_to_win(t_long *so_long, int keycode);
 void			get_data(t_long *so_long);
 void			check_number_of_component(t_componente all);
 void			put_player(t_long *so_long, int keycode, int i, int j);
-void			put_colectabls(t_long *so_long, int keycode, int i, int j);
-void			put_exit(t_long *so_long, int keycode, int i, int j);
+void			put_colectabls(t_long *so_long, int i, int j);
+void			put_exit(t_long *so_long,int i, int j);
 int				esc_hook(t_long *so);
 
 #endif

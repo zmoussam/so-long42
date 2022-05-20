@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:21:47 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 23:51:11 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 19:56:36 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	esc_hook(t_long *so)
 {
+	ft_printf("game over!!!\n");
 	mlx_destroy_window(so->mlx,so->win);
-	//free(so->map);
+	free(so->map);
 	exit(0);
 }
 

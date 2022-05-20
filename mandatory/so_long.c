@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:29 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 23:54:36 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:37:22 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_long	so;
-	int		fd;
-	int		i;
-	int		j;
 	so.moves = 0; 
 	so.count_map_line = 0;
 	if (argc != 2)

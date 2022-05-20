@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 19:52:27 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 03:16:51 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 20:08:48 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void moves_enemie_left(t_long *so_long,char point, t_cordinates p, int *bolean)
     }
     else if(so_long->map[p.y][p.x - 1] == 'P')
     {
+        ft_printf("game over!!!\n");
         mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(-1);
+		exit(0);
 	}
 }
 
@@ -100,8 +101,9 @@ void moves_enemie_right(t_long *so_long, char point, t_cordinates p, int *bolean
     }
      else if(so_long->map[p.y][p.x + 1] == 'P')
     {
+        ft_printf("game over!!!\n");
         mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(-1);
+		exit(0);
 	}
 }
 
@@ -147,8 +149,9 @@ void moves_enemie_up(t_long *so_long, char point, t_cordinates p, int *bolean)
     }
      else if(so_long->map[p.y - 1][p.x] == 'P')
     {
+        ft_printf("game over!!!\n");
         mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(-1);
+		exit(0);
 	}
 }
 void moves_enemie_down(t_long *so_long, char point ,t_cordinates p, int *bolean)
@@ -193,8 +196,9 @@ void moves_enemie_down(t_long *so_long, char point ,t_cordinates p, int *bolean)
     }
      else if(so_long->map[p.y + 1][p.x] == 'P')
     {
+        ft_printf("game over!!!\n");
         mlx_destroy_window(so_long->mlx, so_long->win);
-		exit(-1);
+		exit(0);
 	}
 }
 void moves_enemie_red(t_long *so, t_cordinates e,int *bolean)
@@ -243,7 +247,7 @@ void moves_enemie_green(t_long *so, t_cordinates e,int *bolean)
 void handel_enemie_moves(t_long *so_long,int *bolean ,t_cordinates p)
 {
     if (so_long->map[p.y][p.x] == 'R')
-    {
+    {   
 		moves_enemie_red(so_long, p,bolean);
     }
 	if (so_long->map[p.y][p.x] == 'G')

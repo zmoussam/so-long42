@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 15:16:59 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:42:06 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	handel_error(char *error_name)
 	exit(-1);
 }
 
-void	check_map_component(char **map, int count_map_line)
+void	check_map_component(char **map, size_t count_map_line)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	j = 1;
 	i = 1;
@@ -49,11 +49,11 @@ void	check_map_component(char **map, int count_map_line)
 	}
 }
 
-int	check_component_exist(char **map, int count_map_line)
+int	check_component_exist(char **map, size_t count_map_line)
 {
 	t_componente	all;
-	int				i;
-	int				j;
+	size_t				i;
+	size_t				j;
 
 	i = 0;
 	all.colectabls = 0;

@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:50:59 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/19 00:01:26 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:44:46 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	check_extention(char *file_name)
 		handel_error("extention must be .ber\n");
 }
 
-void	check_map_form(char **map, int count_map_line)
+void	check_map_form(char **map, size_t count_map_line)
 {
 	size_t	size_first_line;
-	int		i;
+	size_t		i;
 
 	i = 1;
 	size_first_line = ft_strlen(map[0]);
@@ -79,10 +79,10 @@ void	check_map_form(char **map, int count_map_line)
 		handel_error("map form invalide\n");
 }
 
-void	check_map_wals(char **map, int count_map_line)
+void	check_map_wals(char **map, size_t count_map_line)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (i < count_map_line)

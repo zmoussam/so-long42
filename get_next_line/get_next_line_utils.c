@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:22:24 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 17:27:56 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:40:03 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	unsigned int	size_s1;
 	unsigned int	size_s2;

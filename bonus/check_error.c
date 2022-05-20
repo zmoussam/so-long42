@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 01:18:46 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:42:27 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	check_number_of_component(t_componente all)
 		handel_error("number of player invalid !!!\n");
 	if (all.colectabls == 0)
 		handel_error("you need collectable !!!\n");
+	if (all.e_r == 0)
+		handel_error("you need red enemie !!!\n");
+	if (all.e_g == 0)
+		handel_error("you need green enemie !!!\n");
+	
 }
 
 void	handel_error(char *error_name)
@@ -28,10 +33,10 @@ void	handel_error(char *error_name)
 	exit(-1);
 }
 
-void	check_map_component(char **map, int count_map_line)
+void	check_map_component(char **map, size_t count_map_line)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	j = 1;
 	i = 1;
@@ -50,16 +55,18 @@ void	check_map_component(char **map, int count_map_line)
 	}
 }
 
-int	check_component_exist(char **map, int count_map_line)
+int	check_component_exist(char **map, size_t count_map_line)
 {
 	t_componente	all;
-	int				i;
-	int				j;
+	size_t				i;
+	size_t				j;
 
 	i = 0;
 	all.colectabls = 0;
 	all.player = 0;
 	all.exit = 0;
+	all.e_r = 0;
+	all.e_g = 0;
 	while (++i < count_map_line - 1)
 	{
 		j = -1;
@@ -71,6 +78,10 @@ int	check_component_exist(char **map, int count_map_line)
 				all.player++;
 			if (map[i][j] == 'C')
 				all.colectabls++;
+			if(map[i][j] == 'R')
+				all.e_r++;
+			if(map[i][j] == 'G')
+				all.e_g++;
 		}
 	}
 	check_number_of_component(all);

@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 23:43:51 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/18 23:19:10 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 19:55:19 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	moves_left(t_long *so_long, t_cordinates p)
 	{
 		so_long->moves++;
 		ft_printf("moves = %d\n",so_long->moves);
+		ft_printf("you won!!\n");
 		so_long->map[p.y][p.x] = '0';
 		mlx_destroy_window(so_long->mlx, so_long->win);
 		exit(-1);
@@ -70,6 +71,7 @@ void	moves_down(t_long *so_long, t_cordinates p)
 	{
 		so_long->moves++;
 		ft_printf("moves = %d\n",so_long->moves);
+		ft_printf("you won!!\n");
 		so_long->map[p.y][p.x] = '0';
 		mlx_destroy_window(so_long->mlx, so_long->win);
 		exit(-1);
@@ -91,6 +93,7 @@ void	moves_up(t_long *so_long, t_cordinates p)
 	{
 		so_long->moves++;
 		ft_printf("moves = %d\n",so_long->moves);
+		ft_printf("you won!!\n");
 		so_long->map[p.y][p.x] = '0';
 		mlx_destroy_window(so_long->mlx, so_long->win);
 		exit(-1);
@@ -109,6 +112,7 @@ void	handel_moves(t_long *so_long, t_cordinates p, int keycode)
 		moves_up(so_long, p);
 	if (keycode == 53)
 	{
+		ft_printf("game over!!!\n");
 		mlx_destroy_window(so_long->mlx, so_long->win);
 		exit(-1);
 	}

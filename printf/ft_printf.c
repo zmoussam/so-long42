@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 18:11:19 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/01/03 19:07:03 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/20 19:29:15 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,10 +127,3 @@ int	ft_printf(const char *str,...)
 	va_end(args);
 	return (count);
 }
-// int main()
-// {
-// 	unsigned int *x  = -255;
-// 	printf("%p\n",x);
-//    ft_printf("%x\n", -215);
-// 	   printf("%x\n", -215);
-// } 
