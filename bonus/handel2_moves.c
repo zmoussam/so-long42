@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:21:47 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 19:55:47 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 00:13:38 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	esc_hook(t_long *so)
 {
 	ft_printf("game over!!!\n");
-	mlx_destroy_window(so->mlx,so->win);
+	mlx_destroy_window(so->mlx, so->win);
 	free(so->map);
 	exit(0);
 }
@@ -45,6 +45,7 @@ t_cordinates	get_cordinates(t_long *so_long, char point)
 int	key_hook(int keycode, t_long *so_long)
 {
 	t_cordinates	p;
+
 	p = get_cordinates(so_long, 'P');
 	handel_moves(so_long, p, keycode);
 	put_map_to_win(so_long, keycode);

@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 18:42:27 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 00:09:34 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	check_number_of_component(t_componente all)
 		handel_error("you need red enemie !!!\n");
 	if (all.e_g == 0)
 		handel_error("you need green enemie !!!\n");
-	
 }
 
 void	handel_error(char *error_name)
@@ -48,7 +47,7 @@ void	check_map_component(char **map, size_t count_map_line)
 			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'E'
 					&& map[i][j] != 'P' && map[i][j] != 'C' && map[i][j] != 'X'
 					&& map[i][j] != 'G' && map[i][j] != 'R')
-				handel_error("map contains some intruders characters!!");
+				handel_error("map contains some intruders characters!!\n");
 			j++;
 		}
 		i++;
@@ -58,8 +57,8 @@ void	check_map_component(char **map, size_t count_map_line)
 int	check_component_exist(char **map, size_t count_map_line)
 {
 	t_componente	all;
-	size_t				i;
-	size_t				j;
+	size_t			i;
+	size_t			j;
 
 	i = 0;
 	all.colectabls = 0;
@@ -78,9 +77,9 @@ int	check_component_exist(char **map, size_t count_map_line)
 				all.player++;
 			if (map[i][j] == 'C')
 				all.colectabls++;
-			if(map[i][j] == 'R')
+			if (map[i][j] == 'R')
 				all.e_r++;
-			if(map[i][j] == 'G')
+			if (map[i][j] == 'G')
 				all.e_g++;
 		}
 	}

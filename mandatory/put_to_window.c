@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:26:04 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 18:29:28 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 03:25:09 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	put_player(t_long *so, int keycode, int i, int j)
 
 void	put_colectabls(t_long *so, int i, int j)
 {
-	if ((i == 8 && j == 13) || (i == 17 && j == 17) || ( i == 3 && j == 15))
+	if ((i == 8 && j == 13) || (i == 17 && j == 17) || (i == 3 && j == 15))
 		mlx_put_image_to_window(so->mlx, so->win, so->ceris, j * 30, i * 30);
 	else if ((i == 15 && j == 3) || (i == 4 && j == 20))
 		mlx_put_image_to_window(so->mlx, so->win, so->heart, j * 30, i * 30);

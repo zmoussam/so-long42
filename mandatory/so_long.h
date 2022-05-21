@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 18:42:48 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 03:26:48 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void			get_data(t_long *so_long);
 void			check_number_of_component(t_componente all);
 void			put_player(t_long *so_long, int keycode, int i, int j);
 void			put_colectabls(t_long *so_long, int i, int j);
-void			put_exit(t_long *so_long,int i, int j);
+void			put_exit(t_long *so_long, int i, int j);
 int				esc_hook(t_long *so);
 
 #endif

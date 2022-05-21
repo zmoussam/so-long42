@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 18:11:19 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 19:29:15 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 03:27:54 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static void	ft_check_flags(char const *str, va_list args, int *count, int *l)
 	}
 }
 
-int	ft_printf(const char *str,...)
+int	ft_printf(const char *str, ...)
 {
 	int		i;
 	va_list	args;

@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 19:43:20 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 03:11:22 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ typedef struct s_long{
 	int		moves;
 	void	*green_left;
 	void	*heart_big;
-	int		*bolean_R;
-	int		*bolean_G;
+	int		*bolean_r;
+	int		*bolean_g;
 	void	*red_left;
-	
 }t_long;
 
 typedef struct s_cordinates
@@ -54,8 +53,8 @@ typedef struct s_componente
 	int	exit;
 	int	colectabls;
 	int	player;
-	int e_r;
-	int e_g;
+	int	e_r;
+	int	e_g;
 }t_componente;
 
 int				ft_strcmp(char *s1, char *s2);
@@ -81,13 +80,19 @@ void			put_player(t_long *so_long, int keycode, int i, int j);
 void			put_colectabls(t_long *so_long, int i, int j);
 void			put_exit(t_long *so_long, int i, int j);
 int				esc_hook(t_long *so);
-void			handel_enemie_moves(t_long *so_long,int *bolean ,t_cordinates p);
-void			moves_enemie_green(t_long *so, t_cordinates e,int *bolean);
-void			moves_enemie_red(t_long *so, t_cordinates e,int *bolean);
-void			moves_enemie_down(t_long *so_long, char point ,t_cordinates p, int *bolean);
-void			moves_enemie_up(t_long *so_long, char point, t_cordinates p, int *bolean);
-void			moves_enemie_right(t_long *so_long, char point, t_cordinates p, int *bolean);
-void			moves_enemie_left(t_long *so_long,char point, t_cordinates p, int *bolean);
+void			handel_enemie_moves(t_long *so_long,
+					int *bolean, t_cordinates p);
+void			moves_enemie_green(t_long *so, t_cordinates e, int *bolean);
+void			moves_enemie_red(t_long *so, t_cordinates e, int *bolean);
+void			moves_enemie_down(t_long *so_long, char point,
+					t_cordinates p, int *bolean);
+void			moves_enemie_up(t_long *so_long, char point,
+					t_cordinates p, int *bolean);
+void			moves_enemie_right(t_long *so_long, char point,
+					t_cordinates p, int *bolean);
+void			moves_enemie_left(t_long *so_long, char point,
+					t_cordinates p, int *bolean);
 char			*ft_itoa(int l);
 char			*ft_strjoin2( char *s1, char *s2);
+int				animation(t_long *so_long, int keycode);
 #endif

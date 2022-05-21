@@ -6,140 +6,140 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 23:43:51 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 20:07:37 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 02:15:58 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	moves_left(t_long *so_long, t_cordinates p)
+void	moves_left(t_long *so, t_cordinates p)
 {
-	if (so_long->map[p.y][p.x - 1] != '1' && so_long->map[p.y][p.x - 1] != 'E')
+	if (so->map[p.y][p.x - 1] != '1' && so->map[p.y][p.x - 1] != 'E')
 	{
-		so_long->moves++;
-		if (so_long->map[p.y][p.x - 1] == 'C' )
+		so->moves++;
+		if (so->map[p.y][p.x - 1] == 'C' )
 		{
-			so_long->number_of_c--;
-			so_long->map[p.y][p.x - 1] = 'P';
-			so_long->map[p.y][p.x] = '0';
+			so->number_of_c--;
+			so->map[p.y][p.x - 1] = 'P';
+			so->map[p.y][p.x] = '0';
 		}
-		else if(so_long->map[p.y][p.x - 1] == '0')
+		else if (so->map[p.y][p.x - 1] == '0')
 		{
-			so_long->map[p.y][p.x - 1] = 'P';
-			so_long->map[p.y][p.x] = '0';
+			so->map[p.y][p.x - 1] = 'P';
+			so->map[p.y][p.x] = '0';
 		}
-		else if (so_long->map[p.y][p.x - 1] == 'G' || so_long->map[p.y][p.x - 1] == 'R')
+		else if (so->map[p.y][p.x - 1] == 'G' || so->map[p.y][p.x - 1] == 'R')
 		{
 			ft_printf("game over!!!\n");
-			mlx_destroy_window(so_long->mlx, so_long->win);
+			mlx_destroy_window(so->mlx, so->win);
 			exit(0);
 		}
 	}	
-	if (so_long->map[p.y][p.x - 1] == 'E' && so_long->number_of_c == 0)
+	if (so->map[p.y][p.x - 1] == 'E' && so->number_of_c == 0)
 	{
-		so_long->moves++;
-		so_long->map[p.y][p.x] = '0';
-		ft_printf("you won!!\n");
-		mlx_destroy_window(so_long->mlx, so_long->win);
+		so->moves++;
+		so->map[p.y][p.x] = '0';
+		ft_printf("you win!!\n");
+		mlx_destroy_window(so->mlx, so->win);
 		exit(-1);
 	}
 }
 
-void	moves_right(t_long *so_long, t_cordinates p)
+void	moves_right(t_long *so, t_cordinates p)
 {
-	if (so_long->map[p.y][p.x + 1] != '1' && so_long->map[p.y][p.x + 1] != 'E')
+	if (so->map[p.y][p.x + 1] != '1' && so->map[p.y][p.x + 1] != 'E')
 	{
-		so_long->moves++;
-		if (so_long->map[p.y][p.x + 1] == 'C')
+		so->moves++;
+		if (so->map[p.y][p.x + 1] == 'C')
 		{
-		so_long->number_of_c--;
-		so_long->map[p.y][p.x + 1] = 'P';
-		so_long->map[p.y][p.x] = '0';	
+			so->number_of_c--;
+			so->map[p.y][p.x + 1] = 'P';
+			so->map[p.y][p.x] = '0';
 		}
-		else if(so_long->map[p.y][p.x + 1] == '0')
+		else if (so->map[p.y][p.x + 1] == '0')
 		{
-			so_long->map[p.y][p.x + 1] = 'P';
-			so_long->map[p.y][p.x] = '0';
+			so->map[p.y][p.x + 1] = 'P';
+			so->map[p.y][p.x] = '0';
 		}
-		else if (so_long->map[p.y][p.x + 1] == 'G' || so_long->map[p.y][p.x + 1] == 'R')
+		else if (so->map[p.y][p.x + 1] == 'G' || so->map[p.y][p.x + 1] == 'R')
 		{
 			ft_printf("game over!!!\n");
-			mlx_destroy_window(so_long->mlx, so_long->win);
+			mlx_destroy_window(so->mlx, so->win);
 			exit(0);
 		}
 	}
-	else if (so_long->map[p.y][p.x + 1] == 'E' && so_long->number_of_c == 0)
+	else if (so->map[p.y][p.x + 1] == 'E' && so->number_of_c == 0)
 	{
-		so_long->moves++;
-		so_long->map[p.y][p.x] = '0';
-		ft_printf("you won!!\n");
-		mlx_destroy_window(so_long->mlx, so_long->win);
+		so->moves++;
+		so->map[p.y][p.x] = '0';
+		ft_printf("you win!!\n");
+		mlx_destroy_window(so->mlx, so->win);
 		exit(-1);
 	}
 }
 
-void	moves_down(t_long *so_long, t_cordinates p)
+void	moves_down(t_long *so, t_cordinates p)
 {
-	if (so_long->map[p.y + 1][p.x] != '1' && so_long->map[p.y + 1][p.x] != 'E')
+	if (so->map[p.y + 1][p.x] != '1' && so->map[p.y + 1][p.x] != 'E')
 	{
-		so_long->moves++;
-		if (so_long->map[p.y + 1][p.x] == 'C')
+		so->moves++;
+		if (so->map[p.y + 1][p.x] == 'C')
 		{
-			so_long->number_of_c--;
-			so_long->map[p.y + 1][p.x] = 'P';
-			so_long->map[p.y][p.x] = '0';	
+			so->number_of_c--;
+			so->map[p.y + 1][p.x] = 'P';
+			so->map[p.y][p.x] = '0';
 		}
-		else if(so_long->map[p.y + 1][p.x] == '0')
+		else if (so->map[p.y + 1][p.x] == '0')
 		{
-			so_long->map[p.y + 1][p.x] = 'P';
-			so_long->map[p.y][p.x] = '0';
+			so->map[p.y + 1][p.x] = 'P';
+			so->map[p.y][p.x] = '0';
 		}
-		else if (so_long->map[p.y + 1][p.x] == 'G' || so_long->map[p.y + 1][p.x] == 'R')
+		else if (so->map[p.y + 1][p.x] == 'G' || so->map[p.y + 1][p.x] == 'R')
 		{
 			ft_printf("game over!!!\n");
-			mlx_destroy_window(so_long->mlx, so_long->win);
+			mlx_destroy_window(so->mlx, so->win);
 			exit(0);
 		}
 	}
-	else if (so_long->map[p.y + 1][p.x] == 'E' && so_long->number_of_c == 0)
+	else if (so->map[p.y + 1][p.x] == 'E' && so->number_of_c == 0)
 	{
-		so_long->moves++;
-		so_long->map[p.y][p.x] = '0';
-		ft_printf("you won!!\n");
-		mlx_destroy_window(so_long->mlx, so_long->win);
+		so->moves++;
+		so->map[p.y][p.x] = '0';
+		ft_printf("you win!!\n");
+		mlx_destroy_window(so->mlx, so->win);
 		exit(-1);
 	}
 }
 
-void	moves_up(t_long *so_long, t_cordinates p)
+void	moves_up(t_long *so, t_cordinates p)
 {
-	if (so_long->map[p.y - 1][p.x] != '1' && so_long->map[p.y - 1][p.x] != 'E')
+	if (so->map[p.y - 1][p.x] != '1' && so->map[p.y - 1][p.x] != 'E')
 	{
-		so_long->moves++;
-		if (so_long->map[p.y - 1][p.x] == 'C')
+		so->moves++;
+		if (so->map[p.y - 1][p.x] == 'C')
 		{
-		so_long->number_of_c--;
-		so_long->map[p.y - 1][p.x] = 'P';
-		so_long->map[p.y][p.x] = '0';	
+			so->number_of_c--;
+			so->map[p.y - 1][p.x] = 'P';
+			so->map[p.y][p.x] = '0';
 		}
-		else if(so_long->map[p.y - 1][p.x] == '0')
+		else if (so->map[p.y - 1][p.x] == '0')
 		{
-			so_long->map[p.y - 1][p.x] = 'P';
-			so_long->map[p.y][p.x] = '0';
+			so->map[p.y - 1][p.x] = 'P';
+			so->map[p.y][p.x] = '0';
 		}
-		else if (so_long->map[p.y - 1][p.x] == 'G' || so_long->map[p.y - 1][p.x] == 'R')
+		else if (so->map[p.y - 1][p.x] == 'G' || so->map[p.y - 1][p.x] == 'R')
 		{
 			ft_printf("game over!!!\n");
-			mlx_destroy_window(so_long->mlx, so_long->win);
+			mlx_destroy_window(so->mlx, so->win);
 			exit(0);
 		}
 	}
-	if (so_long->map[p.y - 1][p.x] == 'E' && so_long->number_of_c == 0)
+	if (so->map[p.y - 1][p.x] == 'E' && so->number_of_c == 0)
 	{
-		so_long->moves++;
-		so_long->map[p.y][p.x] = '0';
-		ft_printf("you won!!\n");
-		mlx_destroy_window(so_long->mlx, so_long->win);
+		so->moves++;
+		so->map[p.y][p.x] = '0';
+		ft_printf("you win!!\n");
+		mlx_destroy_window(so->mlx, so->win);
 		exit(-1);
 	}
 }

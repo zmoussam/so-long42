@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 18:42:06 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 03:22:55 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check_map_component(char **map, size_t count_map_line)
 		{
 			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'E'
 					&& map[i][j] != 'P' && map[i][j] != 'C')
-				handel_error("map contains some intruders characters!!");
+				handel_error("map contains some intruders characters!!\n");
 			j++;
 		}
 		i++;
@@ -52,8 +52,8 @@ void	check_map_component(char **map, size_t count_map_line)
 int	check_component_exist(char **map, size_t count_map_line)
 {
 	t_componente	all;
-	size_t				i;
-	size_t				j;
+	size_t			i;
+	size_t			j;
 
 	i = 0;
 	all.colectabls = 0;

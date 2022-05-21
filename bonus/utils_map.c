@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:25:15 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 19:39:23 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 03:20:03 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,14 @@ void	get_data(t_long *so)
 	so->e_cl = mlx_xpm_file_to_image(so->mlx, "../assets/e_cl.xpm", &x, &y);
 	so->e_op = mlx_xpm_file_to_image(so->mlx, "../assets/e_op.xpm", &x, &y);
 	so->ceris = mlx_xpm_file_to_image(so->mlx, "../assets/cer.xpm", &x, &y);
-	so->green_left = mlx_xpm_file_to_image(so->mlx, "../assets/green_left.xpm",&x,&y);
-	so->heart_big = mlx_xpm_file_to_image(so->mlx, "../assets/heart_big.xpm",&x,&y);
-	so->red_left = mlx_xpm_file_to_image(so->mlx, "../assets/red_left.xpm",&x,&y);
+	so->green_left = mlx_xpm_file_to_image(so->mlx,
+			"../assets/green_left.xpm", &x, &y);
+	so->heart_big = mlx_xpm_file_to_image(so->mlx,
+			"../assets/heart_big.xpm", &x, &y);
+	so->red_left = mlx_xpm_file_to_image(so->mlx,
+			"../assets/red_left.xpm", &x, &y);
 }
+
 static int	nbr_len(int nbr)
 {
 	int	size;
@@ -88,28 +92,28 @@ char	*ft_itoa(int l)
 	return (str);
 }
 
-char    *ft_strjoin2( char *s1, char *s2)
+char	*ft_strjoin2(char *s1, char *s2)
 {
-    char    *new_str;
-    size_t    len_s1;
-    size_t    len_s2;
-    size_t    j;
-    size_t    i;
+	char	*new_str;
+	size_t	len_s1;
+	size_t	len_s2;
+	size_t	j;
+	size_t	i;
 
-    if (!s1)
-        return (NULL);
-    len_s1 = ft_strlen(s1);
-    len_s2 = ft_strlen(s2);
-    new_str = (char*)malloc((len_s1 + len_s2 + 1) * sizeof(char));
-    if (!new_str)
-        return (NULL);
-    i = 0;
-    j = 0;
-    while (s1[i])
-        new_str[j++] = s1[i++];
-    i = 0;
-    while (s2[i])
-        new_str[j++] = s2[i++];
-    new_str[j] = '\0';
-    return (new_str);
+	if (!s1)
+		return (NULL);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	new_str = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
+		new_str[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		new_str[j++] = s2[i++];
+	new_str[j] = '\0';
+	return (new_str);
 }

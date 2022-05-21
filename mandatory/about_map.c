@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:50:59 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 18:45:37 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 03:22:18 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	check_extention(char *file_name)
 void	check_map_form(char **map, size_t count_map_line)
 {
 	size_t	size_first_line;
-	size_t		i;
+	size_t	i;
 
 	i = 1;
 	size_first_line = ft_strlen(map[0]);
