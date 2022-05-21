@@ -6,13 +6,13 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:21:47 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/21 00:13:38 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 04:54:21 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	esc_hook(t_long *so)
+int	game_over(t_long *so)
 {
 	ft_printf("game over!!!\n");
 	mlx_destroy_window(so->mlx, so->win);

@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:29 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/21 03:05:51 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/21 04:54:04 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int	main(int argc, char **argv)
 	put_map_to_win(&so, 2);
 	mlx_loop_hook(so.mlx, animation, &so);
 	mlx_hook(so.win, 2, 1L << 0, &key_hook, &so);
-	mlx_hook(so.win, 17, 1L << 15, esc_hook, &so);
+	mlx_hook(so.win, 17, 1L << 15, game_over, &so);
 	mlx_loop(so.mlx);
 }
