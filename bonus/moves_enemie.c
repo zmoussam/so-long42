@@ -6,48 +6,50 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 03:33:13 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/21 05:55:17 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/23 19:00:46 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void move_enemie(t_long *so, int x, int y, int tmp, int *bolean, char point, char c, int direction)
+void	move_enemie(t_long *so, t_cordinates p, int tmp, char c)
 {
-	*bolean = tmp;
-	so->map[y][x] = point;
-	if (direction == 1)
-		so->map[y][x + 1] = c;
-	if (direction == 2)
-		so->map[y][x - 1] = c;
-	if (direction == 3)
-		so->map[y + 1][x] = c;
-	if (direction == 4)
-		so->map[y - 1][x] = c;
+	*(so->bolean) = tmp;
+	so->map[p.y][p.x] = c;
+	if (so->direction == 1)
+		so->map[p.y][p.x - 1] = so->enemie_color;
+	if (so->direction == 2)
+		so->map[p.y][p.x + 1] = so->enemie_color;
+	if (so->direction == 3)
+		so->map[p.y - 1][p.x] = so->enemie_color;
+	if (so->direction == 4)
+		so->map[p.y + 1][p.x] = so->enemie_color;
 }
 
 void	moves_enemie_left(t_long *so, char point,
-		t_cordinates p, int *bolean)
+		t_cordinates p)
 {
 	int	tmp;
 
-	tmp = *bolean;
+	so->direction = 1;
+	so->enemie_color = point;
+	tmp = *(so->bolean);
 	if (so->map[p.y][p.x - 1] != '1' && so->map[p.y][p.x - 1] != 'E' &&
 			so->map[p.y][p.x - 1] != 'P')
 	{
 		if (tmp == 1)
 		{
 			if (so->map[p.y][p.x - 1] == 'C')
-				move_enemie(so, p.x - 1, p.y, 1, bolean, point, 'C', 1);
+				move_enemie(so, p, 1, 'C');
 			else if (so->map[p.y][p.x - 1] == '0')
-				move_enemie(so, p.x - 1, p.y, 0, bolean, point, 'C', 1);
+				move_enemie(so, p, 0, 'C');
 		}
 		if (tmp == 0)
 		{
 			if (so->map[p.y][p.x - 1] == '0')
-				move_enemie(so, p.x - 1, p.y, 0, bolean, point, '0', 1);
+				move_enemie(so, p, 0, '0');
 			else if (so->map[p.y][p.x - 1] == 'C')
-				move_enemie(so, p.x - 1, p.y, 1, bolean, point, '0', 1);
+				move_enemie(so, p, 1, '0');
 		}
 	}
 	else if (so->map[p.y][p.x - 1] == 'P')
@@ -55,27 +57,29 @@ void	moves_enemie_left(t_long *so, char point,
 }
 
 void	moves_enemie_right(t_long *so, char point,
-		t_cordinates p, int *bolean)
+		t_cordinates p)
 {
 	int	tmp;
 
-	tmp = *bolean;
+	so->direction = 2;
+	so->enemie_color = point;
+	tmp = *(so->bolean);
 	if (so->map[p.y][p.x + 1] != '1' && so->map[p.y][p.x + 1] != 'E' &&
 			so->map[p.y][p.x + 1] != 'P')
 	{
 		if (tmp == 1)
 		{
 			if (so->map[p.y][p.x + 1] == 'C')
-				move_enemie(so, p.x + 1, p.y, 1, bolean, point, 'C', 2);
+				move_enemie(so, p, 1, 'C');
 			else if (so->map[p.y][p.x + 1] == '0')
-				move_enemie(so, p.x + 1, p.y, 0, bolean, point, 'C', 2);
+				move_enemie(so, p, 0, 'C');
 		}
 		if (tmp == 0)
 		{
 			if (so->map[p.y][p.x + 1] == '0')
-				move_enemie(so, p.x + 1, p.y, 0, bolean, point, '0', 2);
+				move_enemie(so, p, 0, '0');
 			else if (so->map[p.y][p.x + 1] == 'C')
-				move_enemie(so, p.x + 1, p.y, 1, bolean, point, '0', 2);
+				move_enemie(so, p, 1, '0');
 		}
 	}
 	else if (so->map[p.y][p.x + 1] == 'P')
@@ -83,27 +87,29 @@ void	moves_enemie_right(t_long *so, char point,
 }
 
 void	moves_enemie_up(t_long *so, char point,
-		t_cordinates p, int *bolean)
+		t_cordinates p)
 {
 	int	tmp;
 
-	tmp = *bolean;
+	so->direction = 3;
+	so->enemie_color = point;
+	tmp = *(so->bolean);
 	if (so->map[p.y - 1][p.x] != '1' && so->map[p.y - 1][p.x] != 'E' &&
 			so->map[p.y - 1][p.x] != 'P')
 	{
 		if (tmp == 1)
 		{
 			if (so->map[p.y - 1][p.x] == 'C')
-				move_enemie(so, p.x, p.y - 1, 1, bolean, point, 'C', 3);
+				move_enemie(so, p, 1, 'C');
 			else if (so->map[p.y - 1][p.x] == '0')
-				move_enemie(so, p.x, p.y - 1, 0, bolean, point, 'C', 3);
+				move_enemie(so, p, 0, 'C');
 		}
 		if (tmp == 0)
 		{
 			if (so->map[p.y - 1][p.x] == '0')
-				move_enemie(so, p.x, p.y - 1, 0, bolean, point, '0', 3);
+				move_enemie(so, p, 0, '0');
 			else if (so->map[p.y - 1][p.x] == 'C')
-				move_enemie(so, p.x, p.y - 1, 1, bolean, point, '0', 3);
+				move_enemie(so, p, 1, '0');
 		}
 	}
 	else if (so->map[p.y - 1][p.x] == 'P')
@@ -111,27 +117,29 @@ void	moves_enemie_up(t_long *so, char point,
 }
 
 void	moves_enemie_down(t_long *so, char point,
-		t_cordinates p, int *bolean)
+		t_cordinates p)
 {
 	int	tmp;
 
-	tmp = *bolean;
+	so->direction = 4;
+	so->enemie_color = point;
+	tmp = *(so->bolean);
 	if (so->map[p.y + 1][p.x] != '1' && so->map[p.y + 1][p.x] != 'E' &&
 			so->map[p.y + 1][p.x] != 'P')
 	{
 		if (tmp == 1)
 		{
 			if (so->map[p.y + 1][p.x] == 'C')
-				move_enemie(so, p.x, p.y + 1, 1, bolean, point, 'C', 4);
+				move_enemie(so, p, 1, 'C');
 			else if (so->map[p.y + 1][p.x] == '0')
-				move_enemie(so, p.x, p.y + 1, 0, bolean, point, 'C', 4);
+				move_enemie(so, p, 0, 'C');
 		}
 		if (tmp == 0)
 		{
 			if (so->map[p.y + 1][p.x] == '0')
-				move_enemie(so, p.x, p.y + 1, 0, bolean, point, '0', 4);
+				move_enemie(so, p, 0, '0');
 			else if (so->map[p.y + 1][p.x] == 'C')
-				move_enemie(so, p.x, p.y + 1, 1, bolean, point, '0', 4);
+				move_enemie(so, p, 1, '0');
 		}
 	}
 	else if (so->map[p.y + 1][p.x] == 'P')

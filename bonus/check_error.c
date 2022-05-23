@@ -6,13 +6,13 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:20:36 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/21 00:09:34 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/23 19:13:57 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	check_number_of_component(t_componente all)
+void	check_number_of_component(t_component all)
 {
 	if (all.exit == 0)
 		handel_error("number of exit invalid !!!\n");
@@ -56,16 +56,12 @@ void	check_map_component(char **map, size_t count_map_line)
 
 int	check_component_exist(char **map, size_t count_map_line)
 {
-	t_componente	all;
-	size_t			i;
-	size_t			j;
+	t_component	all;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
-	all.colectabls = 0;
-	all.player = 0;
-	all.exit = 0;
-	all.e_r = 0;
-	all.e_g = 0;
+	initialize_all(&all);
 	while (++i < count_map_line - 1)
 	{
 		j = -1;

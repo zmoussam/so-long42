@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:50:59 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/20 20:24:28 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/23 22:15:13 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,21 @@
 
 int	get_nbr_line(char *map_file)
 {
-	int	fd;
-	int	count_map_line;
+	int		fd;
+	int		count_map_line;
+	char	*str;
 
 	count_map_line = 0;
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
 		handel_error("open file\n");
-	while (get_next_line(fd))
+	str = get_next_line(fd);
+	while (str)
+	{
 		count_map_line++;
+		free(str);
+		str = get_next_line(fd);
+	}
 	if (count_map_line == 0)
 		handel_error("empty map's file!!\n");
 	close(fd);
@@ -59,7 +65,11 @@ void	check_extention(char *file_name)
 	start = ft_strlen(file_name) - 4;
 	extention = ft_substr(file_name, start, 4);
 	if (ft_strcmp(".ber", extention) != 0)
+	{	
+		free(extention);
 		handel_error("extention must be .ber\n");
+	}
+	free(extention);
 }
 
 void	check_map_form(char **map, size_t count_map_line)

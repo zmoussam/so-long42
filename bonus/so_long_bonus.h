@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:07 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/21 04:55:24 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:27:55 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ typedef struct s_long{
 	int		*bolean_r;
 	int		*bolean_g;
 	void	*red_left;
+	int		*bolean;
+	char	enemie_color;
+	int		direction;
 }t_long;
 
 typedef struct s_cordinates
@@ -55,7 +58,7 @@ typedef struct s_componente
 	int	player;
 	int	e_r;
 	int	e_g;
-}t_componente;
+}t_component;
 
 int				ft_strcmp(char *s1, char *s2);
 void			handel_error(char *error_name);
@@ -75,7 +78,7 @@ void			moves_left(t_long *so_long, t_cordinates p);
 int				key_hook(int keycode, t_long *so_long);
 void			put_map_to_win(t_long *so_long, int keycode);
 void			get_data(t_long *so_long);
-void			check_number_of_component(t_componente all);
+void			check_number_of_component(t_component all);
 void			put_player(t_long *so_long, int keycode, int i, int j);
 void			put_colectabls(t_long *so_long, int i, int j);
 void			put_exit(t_long *so_long, int i, int j);
@@ -85,14 +88,18 @@ void			handel_enemie_moves(t_long *so_long,
 void			moves_enemie_green(t_long *so, t_cordinates e, int *bolean);
 void			moves_enemie_red(t_long *so, t_cordinates e, int *bolean);
 void			moves_enemie_down(t_long *so_long, char point,
-					t_cordinates p, int *bolean);
+					t_cordinates p);
 void			moves_enemie_up(t_long *so_long, char point,
-					t_cordinates p, int *bolean);
+					t_cordinates p);
 void			moves_enemie_right(t_long *so_long, char point,
-					t_cordinates p, int *bolean);
+					t_cordinates p);
 void			moves_enemie_left(t_long *so_long, char point,
-					t_cordinates p, int *bolean);
+					t_cordinates p);
 char			*ft_itoa(int l);
 char			*ft_strjoin2( char *s1, char *s2);
 int				animation(t_long *so_long, int keycode);
+void			move_enemie(t_long *so, t_cordinates p, int tmp, char c);
+void			initialize_all(t_component *all);
+void			put_e_b_w(t_long *so, int i, int j, char e);
+
 #endif

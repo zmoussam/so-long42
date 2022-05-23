@@ -6,7 +6,7 @@
 /*   By: zmoussam <zmoussam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:26:04 by zmoussam          #+#    #+#             */
-/*   Updated: 2022/05/21 03:07:05 by zmoussam         ###   ########.fr       */
+/*   Updated: 2022/05/23 22:15:54 by zmoussam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ void	put_exit(t_long *so, int i, int j)
 
 void	put_player(t_long *so, int keycode, int i, int j)
 {
+	char	*str;
+	char	*str2;
+
 	if (keycode == 0)
 		mlx_put_image_to_window(so->mlx, so->win, so->p_le, j * 30, i * 30);
 	if (keycode == 2)
@@ -30,8 +33,12 @@ void	put_player(t_long *so, int keycode, int i, int j)
 		mlx_put_image_to_window(so->mlx, so->win, so->p_do, j * 30, i * 30);
 	if (keycode == 13)
 		mlx_put_image_to_window(so->mlx, so->win, so->p_up, j * 30, i * 30);
+	str2 = ft_itoa(so->moves);
+	str = ft_strjoin2("moves = ", str2);
 	mlx_string_put(so->mlx, so->win, 0, 0, 0xFFFF00,
-		ft_strjoin2("moves = ", ft_itoa(so->moves)));
+		str);
+	free(str);
+	free(str2);
 }
 
 void	put_colectabls(t_long *so, int i, int j)
@@ -68,8 +75,7 @@ void	put_map_to_win(t_long *so, int keycode)
 		while (so->map[i][++j])
 		{
 			if (so->map[i][j] == '1')
-				mlx_put_image_to_window(so->mlx, so->win,
-					so->wall, j * 30, i * 30);
+				put_e_b_w(so, i, j, '1');
 			else if (so->map[i][j] == 'P')
 				put_player(so, keycode, i, j);
 			else if (so->map[i][j] == 'C')
@@ -77,14 +83,11 @@ void	put_map_to_win(t_long *so, int keycode)
 			else if (so->map[i][j] == 'E')
 				put_exit(so, i, j);
 			else if (so->map[i][j] == '0')
-				mlx_put_image_to_window(so->mlx, so->win,
-					so->black, j * 30, i * 30);
+				put_e_b_w(so, i, j, '0');
 			else if (so->map[i][j] == 'G')
-				mlx_put_image_to_window(so->mlx, so->win,
-					so->green_left, j * 30, i * 30);
+				put_e_b_w(so, i, j, 'G');
 			else if (so->map[i][j] == 'R')
-				mlx_put_image_to_window(so->mlx, so->win,
-					so->red_left, j * 30, i * 30);
+				put_e_b_w(so, i, j, 'R');
 		}
 	}
 }
